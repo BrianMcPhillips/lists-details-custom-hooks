@@ -5,10 +5,10 @@ export const getCharacters = async() => {
 
   return json.results.map(character => ({
     name: character.name,
-    status: character.status,
-    occupation: character.occupation,
+    // status: character.status,
+    // occupation: character.occupation,
     image: character.image,
-    description: character.description
+    // description: character.description
   }));
 };
 

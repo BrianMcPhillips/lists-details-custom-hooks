@@ -13,7 +13,7 @@ const CharacterList = () => {
   ));
 
   return (
-    <ul>
+    <ul data-testid="characters">
       {characterStuff}
     </ul>
   );
