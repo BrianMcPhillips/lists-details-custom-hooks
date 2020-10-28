@@ -5,16 +5,16 @@ export const getCharacters = async() => {
 
   return json.results.map(character => ({
     name: character.name,
-    // status: character.status,
-    // occupation: character.occupation,
+    status: character.status,
+    occupation: character.occupation,
     image: character.image,
-    // description: character.description
+    description: character.description
   }));
 };
 
 export const getCharacterByName = async(name) => {
   const res = await fetch(
-    `https://xfiles-api.herokuapp.com/api/v1/characters/:${name}`);
+    `https://xfiles-api.herokuapp.com/api/v1/characters/${name}`);
   const json = await res.json();
   if(!res.ok) throw 'Bad API call unable to fetch';
 

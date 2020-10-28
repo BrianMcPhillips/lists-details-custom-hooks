@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCharacters } from '../../hooks/characters';
 import Character from './Character';
+import { Link } from 'react-router-dom';
 
 const CharacterList = () => {
   const { loading, characters } = useCharacters();
@@ -8,7 +9,9 @@ const CharacterList = () => {
 
   const characterStuff = characters.map(character => (
     <li key={Character.name}>
-      <Character {...character} />
+      <Link to={`/detail/${character.name}`}>
+        <Character {...character} />
+      </Link>
     </li>
   ));
 
@@ -18,5 +21,6 @@ const CharacterList = () => {
     </ul>
   );
 };
+
 
 export default CharacterList;
