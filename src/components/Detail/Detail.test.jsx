@@ -1,13 +1,14 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { getCharacterByName } from '../../services/xFilesApi';
+import { getCharacterById } from '../../services/xFilesApi';
 import Detail from './Detail';
+import { MemoryRouter, Route } from 'react-router-dom';
 
 jest.mock('../../services/xFilesApi');
 
 describe('Detail component', () => {
-  it.skip('display a character to detail page after load', () => {
-    getCharacterByName.mockResolvedValue({
+  it('display a character to detail page after load', () => {
+    getCharacterById.mockResolvedValue({
       name: 'Test Testerson',
       status: 'Meh',
       occupation: 'Crushing it full time',
@@ -15,7 +16,10 @@ describe('Detail component', () => {
       description: 'this is the best test ever written'
     });
 
-    render();
+    render(
+      <MemoryRouter initialEntries={['/character/1']}>
+        <Route path="/character/:name" component={Detail} />
+      </MemoryRouter>);
 
     screen.getByText('Loading!');
 

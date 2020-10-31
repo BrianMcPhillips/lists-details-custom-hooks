@@ -9,7 +9,7 @@ const CharacterList = () => {
 
   const characterStuff = characters.map(character => (
     <li key={Character.name}>
-      <Link to={`/detail/${character.name}`}>
+      <Link to={`/characters/${character.name}`}>
         <Character {...character} />
       </Link>
     </li>

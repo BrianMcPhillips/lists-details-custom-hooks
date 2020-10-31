@@ -5,14 +5,15 @@ import {
   Route
 } from 'react-router-dom';
 import CharacterListPage from '../../pages/CharacterListPage';
-import DetailPage from '../../pages/DetailPage';
+import Detail from '../Detail/Detail';
+
 
 export default function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={CharacterListPage} />
-        <Route exact path="/detail/name" component={DetailPage} />
+        <Route exact path="/characters/:name" component={Detail} />
       </Switch>
     </Router>
   );

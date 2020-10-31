@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getCharacterByName, getCharacters } from '../services/xFilesApi';
+import { getCharacterById, getCharacters } from '../services/xFilesApi';
 
 export const useCharacters = () => {
   const [loading, setLoading] = useState(true);
@@ -17,12 +17,12 @@ export const useCharacters = () => {
   };
 };
 
-export const useCharacterByName = name => {
+export const useCharacterById = name => {
   const [loading, setLoading] = useState(true);
   const [character, setCharacter] = useState(null);
 
   useEffect(() => {
-    getCharacterByName(name)
+    getCharacterById(name)
       .then(jsonCharacter => setCharacter(jsonCharacter))
       .finally(() => setLoading(false));
   }, [name]);

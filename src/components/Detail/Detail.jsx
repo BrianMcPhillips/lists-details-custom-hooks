@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useCharacterByName } from '../../hooks/characters';
+import { useCharacterById } from '../../hooks/characters';
 
 const Detail = () => {
   const { name } = useParams();
-  const { loading, character } = useCharacterByName(name);
+  const { loading, character } = useCharacterById(name);
   if(loading) return <h1>Loading!</h1>;
 
   return (

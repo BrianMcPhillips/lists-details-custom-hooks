@@ -12,10 +12,10 @@ export const getCharacters = async() => {
   }));
 };
 
-export const getCharacterByName = async(name) => {
+export const getCharacterById = async(name) => {
   const res = await fetch(
     `https://xfiles-api.herokuapp.com/api/v1/characters/${name}`);
-  const json = await res.json();
+  const [json] = await res.json();
   if(!res.ok) throw 'Bad API call unable to fetch';
 
   return {
