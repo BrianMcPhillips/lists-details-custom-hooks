@@ -17,7 +17,7 @@ const CharacterList = ({ page }) => {
   ));
 
   return (
-    <ul data-testid="characters">
+    <ul className="CharacterList" data-testid="characters">
       {characterStuff}
     </ul>
   );

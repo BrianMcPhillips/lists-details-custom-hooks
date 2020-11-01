@@ -15,7 +15,7 @@ export const getCharacters = async(page = 1) => {
 export const getCharacterById = async(id) => {
   const res = await fetch(
     `https://rickandmortyapi.com/api/character/${id}`);
-  const [json] = await res.json();
+  const json = await res.json();
   if(!res.ok) throw 'Bad API call unable to fetch';
 
   return {
