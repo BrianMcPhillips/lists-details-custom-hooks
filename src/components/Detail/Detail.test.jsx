@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { getCharacterById } from '../../services/xFilesApi';
+import { getCharacterById } from '../../services/rickAndMorty';
 import Detail from './Detail';
 import { MemoryRouter, Route } from 'react-router-dom';
 
@@ -11,9 +11,9 @@ describe('Detail component', () => {
     getCharacterById.mockResolvedValue({
       name: 'Test Testerson',
       status: 'Meh',
-      occupation: 'Crushing it full time',
+      Species: 'Maybe human',
       image: 'http://www.placecage.com/200/200',
-      description: 'this is the best test ever written'
+      location: 'mars'
     });
 
     render(

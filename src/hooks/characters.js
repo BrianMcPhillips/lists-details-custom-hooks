@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { getCharacterById, getCharacters } from '../services/xFilesApi';
+import { getCharacterById, getCharacters } from '../services/rickAndMorty';
 
-export const useCharacters = () => {
+export const useCharacters = (page) => {
   const [loading, setLoading] = useState(true);
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    getCharacters()
+    getCharacters(page)
       .then(jsonCharacters => setCharacters(jsonCharacters))
       .finally(() => setLoading(false)); 
-  }, []);
+  }, [page]);
 
   return {
     loading,
@@ -17,15 +17,15 @@ export const useCharacters = () => {
   };
 };
 
-export const useCharacterById = name => {
+export const useCharacterById = id => {
   const [loading, setLoading] = useState(true);
   const [character, setCharacter] = useState(null);
 
   useEffect(() => {
-    getCharacterById(name)
+    getCharacterById(id)
       .then(jsonCharacter => setCharacter(jsonCharacter))
       .finally(() => setLoading(false));
-  }, [name]);
+  }, [id]);
 
   return {
     loading,
