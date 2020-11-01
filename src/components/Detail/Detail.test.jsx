@@ -4,31 +4,31 @@ import { getCharacterById } from '../../services/rickAndMorty';
 import Detail from './Detail';
 import { MemoryRouter, Route } from 'react-router-dom';
 
-jest.mock('../../services/xFilesApi');
+jest.mock('../../services/rickAndMorty.js');
 
 describe('Detail component', () => {
   it('display a character to detail page after load', () => {
     getCharacterById.mockResolvedValue({
       name: 'Test Testerson',
       status: 'Meh',
-      Species: 'Maybe human',
+      species: 'Maybe human',
       image: 'http://www.placecage.com/200/200',
       location: 'mars'
     });
 
     render(
       <MemoryRouter initialEntries={['/character/1']}>
-        <Route path="/character/:name" component={Detail} />
+        <Route path="/character/:id" component={Detail} />
       </MemoryRouter>);
 
     screen.getByText('Loading!');
 
     return waitFor(() => {
       screen.getByText('Test Testerson');
-      screen.getByText('Meh');
-      screen.getByText('Crushing it full time');
+      screen.getByText('Status: Meh');
+      screen.getByText('Species: Maybe human');
       screen.getByAltText('Test Testerson');
-      screen.getByText('this is the best test ever written');
+      screen.getByText('Location: mars');
     });
   });
 });

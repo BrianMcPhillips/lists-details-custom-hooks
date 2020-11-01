@@ -7,9 +7,9 @@ describe('Character component', () => {
     const { asFragment } = render(<Character 
       name="Test Testerson"
       status="Meh"
-      occupation="Crushing it full time"
+      species="Maybe human"
       image="http://www.placecage.com/200/200"
-      description="this is the best test ever written"
+      location="Mars"
     />);
     
     expect(asFragment()).toMatchSnapshot();

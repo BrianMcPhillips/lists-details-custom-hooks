@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import CharacterList from './CharacterList';
-import { getCharacters } from '../../services/xFilesApi';
+import { getCharacters } from '../../services/rickAndMorty';
 import { MemoryRouter } from 'react-router-dom';
 
-jest.mock('../../services/xFilesApi.js');
+jest.mock('../../services/rickAndMorty.js');
 
 describe('CharacterList component', () => {
   it('displays the list of Characters', async() => {
@@ -12,9 +12,16 @@ describe('CharacterList component', () => {
       {
         name: 'Test Testerson',
         status: 'Meh',
-        occupation: 'Crushing it full time',
+        species: 'maybe human',
         image: 'http://www.placecage.com/200/200',
-        description: 'this is the best test ever written'
+        location: 'mars'
+      },
+      {
+        name: 'Test Testerson jr',
+        status: 'Meh',
+        species: 'maybe human',
+        image: 'http://www.placecage.com/200/200',
+        location: 'mars'
       }
     ]);
 
